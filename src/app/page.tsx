@@ -379,12 +379,12 @@ export default function Home() {
               onChange={(e) => setNewFolderName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleCreateFolder()}
               placeholder="输入文件夹名称..."
-              className="flex-1 px-3 py-2 rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-[13px]"
+              className="min-w-0 flex-1 px-3 py-2 rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-[13px]"
               autoFocus
             />
             <button
               onClick={handleCreateFolder}
-              className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm transition-colors text-[13px] font-medium cursor-pointer"
+              className="shrink-0 whitespace-nowrap px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm transition-colors text-[13px] font-medium cursor-pointer"
             >
               创建
             </button>
