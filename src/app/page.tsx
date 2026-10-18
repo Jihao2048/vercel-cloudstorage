@@ -323,7 +323,7 @@ export default function Home() {
           <button
             onClick={handleUpload}
             disabled={loading}
-            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-l-xl bg-blue-500 hover:bg-blue-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[13px] font-medium cursor-pointer"
+            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-l-xl bg-blue-500 hover:bg-blue-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[16px] font-medium cursor-pointer"
           >
             <img src="/upload.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5 invert" />
             <span>上传</span>
@@ -332,24 +332,15 @@ export default function Home() {
           <button
             onClick={() => setShowNewFolder(!showNewFolder)}
             disabled={loading}
-            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-none bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[13px] font-medium cursor-pointer"
+            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-none bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[16px] font-medium cursor-pointer"
           >
             <img src="/folder.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5 invert" />
             <span>新建文件夹</span>
           </button>
 
           <button
-            onClick={fetchFiles}
-            disabled={loading}
-            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-none bg-white/70 hover:bg-gray-100/80 text-gray-700 border border-gray-300/50 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[13px] font-medium cursor-pointer"
-          >
-            <img src="/refresh.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>刷新</span>
-          </button>
-
-          <button
             onClick={handleDeleteSelected}
-            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-r-xl bg-red-500 hover:bg-red-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[13px] font-medium cursor-pointer"
+            className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-r-xl bg-red-500 hover:bg-red-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[16px] font-medium cursor-pointer"
           >
             <img src="/trash.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5 invert" />
             <span>删除选中</span>
@@ -363,6 +354,15 @@ export default function Home() {
             onChange={handleFileChange}
           />
           </div>
+
+          <button
+            onClick={fetchFiles}
+            disabled={loading}
+            className="w-fit flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 mt-2 sm:mt-0 sm:ml-2 rounded-xl bg-white/70 hover:bg-gray-100/80 text-gray-700 border border-gray-300/50 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[16px] font-medium cursor-pointer"
+          >
+            <img src="/refresh.svg" alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>刷新</span>
+          </button>
 
           {loading && (
             <div className="progress-track w-full sm:flex-1 sm:ml-4 mt-2 sm:mt-0">
