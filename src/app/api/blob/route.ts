@@ -20,7 +20,8 @@ export async function GET() {
         totalSize,
       },
     });
-  } catch {
+  } catch (e) {
+    console.error("GET /api/blob 失败:", e);
     return NextResponse.json(
       { error: "获取文件列表失败" },
       { status: 500 }
@@ -67,7 +68,8 @@ export async function POST(request: Request) {
         uploadedAt: new Date().toISOString(),
       },
     });
-  } catch {
+  } catch (e) {
+    console.error("POST /api/blob 失败:", e);
     return NextResponse.json({ error: "上传失败" }, { status: 500 });
   }
 }
@@ -80,7 +82,8 @@ export async function DELETE(request: Request) {
     }
     await del(url);
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (e) {
+    console.error("DELETE /api/blob 失败:", e);
     return NextResponse.json({ error: "删除失败" }, { status: 500 });
   }
 }

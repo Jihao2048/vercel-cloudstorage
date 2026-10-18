@@ -596,7 +596,7 @@ export default function Home() {
                           colSpan={4}
                           className="px-4 py-12 text-center text-gray-400"
                         >
-                          暂无文件，点击「上传」开始使用 <img src="/favicon.svg" alt="" className="w-5 h-5 inline" />
+                          暂无文件，点击「上传」开始使用
                         </td>
                       </tr>
                     )}
