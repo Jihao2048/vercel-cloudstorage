@@ -393,9 +393,10 @@ export default function Home() {
                 setShowNewFolder(false);
                 setNewFolderName("");
               }}
-              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors text-[13px] cursor-pointer"
+              aria-label="取消"
+              className="shrink-0 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors cursor-pointer"
             >
-              取消
+              <img src="/cross.svg" alt="取消" className="w-4 h-4" />
             </button>
           </div>
         )}
