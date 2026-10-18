@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "荆南俊俊";
+  src: url("/荆南俊俊.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cascadia Mono";
+  src: url("/CascadiaMono-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: linear-gradient(135deg, #f0f4ff 0%, #fdf2f8 30%, #ecfdf5 60%, #eff6ff 100%);
+  color: var(--foreground);
+  font-family: "荆南俊俊", var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 30%, #bfdbfe33 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, #fbcfe833 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, #a7f3d033 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.progress-track {
+  height: 16px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #FFD1DC, #A6E0CF, #87CEEB);
+  border-radius: 5px;
+  animation: sweep 2000ms infinite;
+}
+
+@keyframes sweep {
+  0% {
+    width: 0%;
+    margin-left: 0%;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  33.333% {
+    width: 100%;
+    margin-left: 0%;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  66.666% {
+    width: 0%;
+    margin-left: 100%;
+  }
+  66.667% {
+    width: 0%;
+    margin-left: 0%;
+  }
+  100% {
+    width: 0%;
+    margin-left: 0%;
+  }
+}
