@@ -35,6 +35,26 @@ body {
   min-height: 100vh;
 }
 
+/* 完全隐藏所有滚动条（保留滚动功能），避免玻璃卡片上的滚动条拖影/错位 */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+html::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -86,4 +106,57 @@ body::before {
     width: 0%;
     margin-left: 0%;
   }
+}
+
+/* 隐藏表格横向滚动容器等所有 overflow 容器的滚动条，并禁止其残留拖影 */
+.overflow-x-auto,
+.overflow-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-hidden::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
+/* 卡片入场动画：柔和下坠 + 弹性回弹，progress 消失后下方卡片滞后浮现 */
+@keyframes card-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(4px) scale(1.008);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-enter {
+  animation: card-drop 0.6s cubic-bezier(0.22, 0.8, 0.36, 1) both;
+}
+
+/* 卡片之间错峰出现：第二张卡片比第一张稍晚 */
+.card-enter-delay {
+  animation: card-drop 0.6s cubic-bezier(0.22, 0.8, 0.36, 1) both;
+  animation-delay: 0.12s;
+}
+
+/* 进度条本身：结束时的淡出 */
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    transform: scaleY(0.6);
+  }
+}
+.progress-fade {
+  animation: fade-out 0.35s ease forwards;
 }

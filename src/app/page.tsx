@@ -400,7 +400,10 @@ export default function Home() {
           </div>
         )}
 
-        <div className="p-4 sm:p-6 rounded-xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+        <div
+          key={loading ? "load-stats" : "done-stats"}
+          className="card-enter p-4 sm:p-6 rounded-xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
+        >
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
               <svg className="w-16 h-16 sm:w-20 sm:h-20 -rotate-90" viewBox="0 0 100 100">
@@ -435,8 +438,8 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <div className="text-gray-400 text-xs uppercase">存储用量</div>
-              <div className="text-sm text-gray-600 mt-0.5">{formatSize(stats.totalSize)} / 10 GB</div>
+              <div className="text-gray-400 text-xs uppercase tracking-wider">存储用量</div>
+              <div className="text-sm text-gray-600 mt-0.5" style={{ fontFamily: '"Cascadia Mono", monospace' }}>{formatSize(stats.totalSize)} / 10 GB</div>
             </div>
           </div>
 
@@ -460,7 +463,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="rounded-xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-sm overflow-hidden">
+        <div
+          key={loading ? "load-files" : "done-files"}
+          className="card-enter-delay rounded-xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-sm overflow-hidden"
+        >
           <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
             <button
               onClick={goBack}
