@@ -435,8 +435,8 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <div className="text-gray-400 text-xs uppercase tracking-wider">存储用量</div>
-              <div className="text-sm text-gray-600 mt-0.5" style={{ fontFamily: '"Cascadia Mono", monospace' }}>{formatSize(stats.totalSize)} / 10 GB</div>
+              <div className="text-gray-400 text-xs uppercase">存储用量</div>
+              <div className="text-sm text-gray-600 mt-0.5">{formatSize(stats.totalSize)} / 10 GB</div>
             </div>
           </div>
 
@@ -606,7 +606,7 @@ export default function Home() {
                         colSpan={4}
                         className="px-4 py-12 text-center text-gray-400"
                       >
-                        此文件夹为空 <img src="/folder.svg" alt="" className="w-5 h-5 inline opacity-50" />
+                        此文件夹为空
                       </td>
                     </tr>
                   )}
