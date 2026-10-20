@@ -40,7 +40,6 @@ export async function POST(request: Request) {
         access: "public",
         addRandomSuffix: false,
       });
-      await del(result.url);
       return NextResponse.json({
         success: true,
         folder: result.pathname,

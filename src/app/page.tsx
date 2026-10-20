@@ -622,6 +622,12 @@ export default function Home() {
             </div>
           )}
         </div>
+
+        {currentFolder && selected.size > 0 && (
+          <div className="text-xs text-gray-400 text-center py-1">
+            提示：全选删除当前文件夹中的所有文件后，该文件夹也会一同被删除
+          </div>
+        )}
       </div>
     </div>
   );
