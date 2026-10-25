@@ -32,12 +32,21 @@ function formatDate(date: Date): string {
   });
 }
 
+function getInitialFolder(): string {
+  if (typeof window === "undefined") return "";
+  try {
+    return new URLSearchParams(window.location.search).get("dir") || "";
+  } catch {
+    return "";
+  }
+}
+
 export default function Home() {
   const [files, setFiles] = useState<BlobFile[]>([]);
   const [stats, setStats] = useState<Stats>({ totalFiles: 0, totalSize: 0 });
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
-  const [currentFolder, setCurrentFolder] = useState("");
+  const [currentFolder, setCurrentFolder] = useState(getInitialFolder);
   const [showNewFolder, setShowNewFolder] = useState(false);
   const [newFolderName, setNewFolderName] = useState("");
   
@@ -68,6 +77,18 @@ export default function Home() {
   useEffect(() => {
     fetchFiles(); // eslint-disable-line react-hooks/set-state-in-effect
   }, [fetchFiles]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (currentFolder) {
+      params.set("dir", currentFolder);
+    } else {
+      params.delete("dir");
+    }
+    const qs = params.toString();
+    const newUrl = window.location.pathname + (qs ? `?${qs}` : "");
+    window.history.replaceState({}, "", newUrl);
+  }, [currentFolder]);
 
   const getFileIcon = (pathname: string) => {
     const ext = pathname.split(".").pop()?.toLowerCase();
